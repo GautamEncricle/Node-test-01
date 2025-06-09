@@ -6,7 +6,7 @@ const ApiError = require("../utils/ApiError");
 exports.getAllBlogs = asyncHandler(async (req, res, next) => {
 
     const blogs = await Blog.find()
-        .populate("author", "username") // ✅ populate author means populate author from user model
+        .populate("author", "username") 
         .sort({ createdAt: -1 })
         .lean();
 
@@ -19,9 +19,9 @@ exports.getAllBlogs = asyncHandler(async (req, res, next) => {
 });
 
 exports.getBlogById = asyncHandler(async (req, res, next) => {
-    const { id } = req.params; // ✅ Correct destructuring
+    const { id } = req.params; 
 
-    const blog = await Blog.findById(id).populate("author", "username").lean(); // ✅ populate author
+    const blog = await Blog.findById(id).populate("author", "username").lean(); 
 
     if (!blog) {
         return next(new ApiError(404, "Blog not found"));
@@ -36,8 +36,8 @@ exports.getBlogById = asyncHandler(async (req, res, next) => {
 
 
 exports.createBlog = asyncHandler(async (req, res, next) => {
-    // Set author from authenticated user
-    req.body.author = req.user?._id || "anonymous";// ✅ Set author from authenticated user
+   
+    req.body.author = req.user?._id || "anonymous";
     const newBlog = await Blog.create(req.body);
 
     if (!newBlog) {
