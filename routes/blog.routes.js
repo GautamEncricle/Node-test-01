@@ -1,10 +1,10 @@
 const express = require("express");
 const {
-    getAllBlogs,
-    getBlogById,
-    createBlog,
-    updateBlog,
-    deleteBlog,
+  getAllBlogs,
+  getBlogById,
+  createBlog,
+  updateBlog,
+  deleteBlog,
 } = require("../controllers/blog.controller");
 const { protect } = require("../middlewares/auth.middlewares");
 const router = express.Router();
