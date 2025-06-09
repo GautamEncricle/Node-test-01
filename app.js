@@ -1,7 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const { globalErrorHandler } = require("./utils/globalErrorHandler");
+const { globalErrorHandler } = require("./src/utils/globalErrorHandler");
 require("dotenv").config({ path: "./.env" });
 
 const app = express();
@@ -14,8 +14,8 @@ cors({
 });
 
 //imports routers
-const authRouter = require("./routes/user.routes");
-const blogRouter = require("./routes/blog.routes");
+const authRouter = require("./src/routes/user.routes");
+const blogRouter = require("./src/routes/blog.routes");
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/blog", blogRouter);
