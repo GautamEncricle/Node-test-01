@@ -2,7 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const { globalErrorHandler } = require("./src/utils/globalErrorHandler");
-const ErrorHandler = require('./src/middlewares/errorHandler.middleware');
+const ErrorHandler = require("./src/middlewares/errorHandler.middleware");
 require("dotenv").config({ path: "./.env.dev" });
 
 const Node_Env = process.env.NODE_ENV;
